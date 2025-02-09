@@ -1,34 +1,23 @@
-import tweepy
 import pandas as pd
+import datetime
 
-# Reemplaza con tus credenciales de Twitter
-API_KEY = 'TU_API_KEY'
-API_SECRET = 'TU_API_SECRET'
-ACCESS_TOKEN = 'TU_ACCESS_TOKEN'
-ACCESS_TOKEN_SECRET = 'TU_ACCESS_TOKEN_SECRET'
+def collect_dummy_data():
+    # Simula datos de tweets y otras redes sociales
+    data = [
+        {
+            "usuario": "usuario1",
+            "texto": "Me encantan los cinnamon rolls y los donuts!",
+            "fecha": datetime.datetime.now()
+        },
+        {
+            "usuario": "usuario2",
+            "texto": "Rollos de canela, dulces y más... ¡delicioso!",
+            "fecha": datetime.datetime.now()
+        }
+    ]
+    df = pd.DataFrame(data)
+    df.to_csv("tweets_cinnamon.csv", index=False)
+    print("Datos simulados guardados en tweets_cinnamon.csv")
 
-# Autenticación en Twitter
-auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
-auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-api = tweepy.API(auth, wait_on_rate_limit=True)
-
-# Define palabras clave para la búsqueda
-keywords = ["cinnamon roll", "rollos de canela", "donuts", "pastel", "café", "panadería", "repostería", "postres","desayuno"]
-tweets_data = []
-
-# Recolecta tweets para cada palabra clave
-for keyword in keywords:
-    for tweet in tweepy.Cursor(api.search_tweets,
-                               q=keyword,
-                               lang="es",
-                               tweet_mode="extended").items(100):
-        tweets_data.append({
-            "usuario": tweet.user.screen_name,
-            "texto": tweet.full_text,
-            "fecha": tweet.created_at
-        })
-
-# Convierte los datos a un DataFrame y guarda en CSV
-df = pd.DataFrame(tweets_data)
-df.to_csv("tweets_cinnamon.csv", index=False)
-print("Datos guardados en tweets_cinnamon.csv")
+if __name__ == '__main__':
+    collect_dummy_data()
