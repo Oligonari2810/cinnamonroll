@@ -1,14 +1,7 @@
-# Node.js
-node_modules/
-
-# Python
+echo "venv/
 __pycache__/
-*.pyc
-
-# Entornos virtuales
-env/
-venv/
-
-# Archivos de configuración de IDEs
-.vscode/
-.idea/
+node_modules/
+.env
+.DS_Store
+db_data/
+" > .gitignore

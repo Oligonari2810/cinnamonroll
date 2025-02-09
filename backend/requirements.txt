@@ -1,0 +1,10 @@
+mkdir -p backend
+echo "fastapi
+uvicorn
+SQLAlchemy
+psycopg2-binary
+python-dotenv
+PyJWT
+requests
+httpx
+" > backend/requirements.txt
