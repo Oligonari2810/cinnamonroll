@@ -1,0 +1,14 @@
+# Node.js
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Entornos virtuales
+env/
+venv/
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
