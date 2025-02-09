@@ -13,7 +13,7 @@ auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
 # Define palabras clave para la búsqueda
-keywords = ["cinnamon roll", "rollos de canela", "donuts", "dulces"]
+keywords = ["cinnamon roll", "rollos de canela", "donuts", "pastel", "café", "panadería", "repostería", "postres","desayuno"]
 tweets_data = []
 
 # Recolecta tweets para cada palabra clave
